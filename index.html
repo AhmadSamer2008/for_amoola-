@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Emily ❤️</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    color: white;
+    background:
+        radial-gradient(circle at 50% 10%, #650018 0%, transparent 35%),
+        radial-gradient(circle at 10% 80%, #35000d 0%, transparent 40%),
+        #050005;
+}
+/* STARS */
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: twinkle 3s infinite ease-in-out;
+}
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+/* MAIN */
+.container {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+/* SUBTITLE */
+.subtitle {
+    color: #ff9aaa;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+/* EMILY */
+h1 {
+    font-size: clamp(55px, 18vw, 120px);
+    letter-spacing: 8px;
+    margin-bottom: 22px;
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #ff6b81,
+            #ff1744
+        );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation:
+        titleFloat 4s ease-in-out infinite;
+}
+@keyframes titleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+/* EMILY PHOTO */
+.emily-photo {
+    width: 200px;
+    height: 200px;
+    margin: 5px auto 28px;
+    padding: 5px;
+    border-radius: 50%;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            135deg,
+            #ff1744,
+            #ff9aaa,
+            #720018,
+            #ff1744
+        );
+    box-shadow:
+        0 0 25px rgba(255, 23, 68, 0.7),
+        0 0 70px rgba(255, 23, 68, 0.3);
+    animation:
+        photoGlow 3s ease-in-out infinite;
+}
+.emily-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 3px solid #100005;
+}
+@keyframes photoGlow {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow:
+            0 0 25px rgba(255, 23, 68, 0.7),
+            0 0 70px rgba(255, 23, 68, 0.3);
+    }
+    50% {
+        transform: scale(1.04);
+        box-shadow:
+            0 0 35px rgba(255, 23, 68, 0.9),
+            0 0 90px rgba(255, 23, 68, 0.4);
+    }
+}
+/* HEART */
+.heart {
+    font-size: 65px;
+    margin-bottom: 25px;
+    animation:
+        heartbeat 1.5s infinite;
+    filter:
+        drop-shadow(0 0 20px #ff1744);
+}
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.2);
+    }
+    30% {
+        transform: scale(1);
+    }
+    45% {
+        transform: scale(1.15);
+    }
+}
+/* MESSAGE */
+.message {
+    max-width: 650px;
+    color: #eeeeee;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+.message strong {
+    color: #ff526b;
+}
+/* CARD */
+.card {
+    width: 100%;
+    max-width: 550px;
+    padding: 30px 22px;
+    border-radius: 28px;
+    background:
+        rgba(255,255,255,0.05);
+    border:
+        1px solid
+        rgba(255,80,100,0.25);
+    backdrop-filter: blur(15px);
+    box-shadow:
+        0 0 40px rgba(255,0,40,0.08),
+        inset 0 0 30px rgba(255,255,255,0.02);
+}
+/* COUNTER TITLE */
+.counter-title {
+    color: #ff9aaa;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+/* LIVE LOVE COUNTER */
+.love-counter {
+    display: grid;
+    grid-template-columns:
+        repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 8px;
+}
+.time-box {
+    padding: 15px 5px;
+    border-radius: 18px;
+    background:
+        rgba(255,30,60,0.08);
+    border:
+        1px solid
+        rgba(255,100,120,0.18);
+    box-shadow:
+        inset 0 0 20px
+        rgba(255,0,40,0.04);
+    transition: 0.3s;
+}
+.time-box:hover {
+    transform: translateY(-3px);
+    background:
+        rgba(255,30,60,0.14);
+}
+.time-box span {
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    text-shadow:
+        0 0 18px
+        rgba(255,50,80,0.6);
+}
+.time-box small {
+    display: block;
+    margin-top: 5px;
+    color: #ff9aaa;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+/* SECRET BUTTON */
+.secret-button {
+    margin-top: 30px;
+    padding: 15px 25px;
+    border:
+        1px solid
+        rgba(255,100,120,0.4);
+    border-radius: 50px;
+    background:
+        rgba(255,30,60,0.1);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.secret-button:hover {
+    background:
+        rgba(255,30,60,0.25);
+    transform: scale(1.05);
+}
+/* SECRET MESSAGE */
+#secret {
+    display: none;
+    margin-top: 25px;
+    color: #ffb4bf;
+    line-height: 1.8;
+    animation:
+        fadeIn 1s ease;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform:
+            translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
+/* FLOATING HEARTS */
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    color: #ff1744;
+    font-size: 20px;
+    pointer-events: none;
+    z-index: 1;
+    animation:
+        floatHeart 7s linear forwards;
+}
+@keyframes floatHeart {
+    0% {
+        transform:
+            translateY(0)
+            scale(0.7);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.8;
+    }
+    100% {
+        transform:
+            translateY(-110vh)
+            scale(1.4);
+        opacity: 0;
+    }
+}
+/* HIDDEN AUDIO */
+audio {
+    display: none;
+}
+/* MOBILE */
+@media (max-width: 600px) {
+    .container {
+        padding: 40px 18px;
+    }
+    h1 {
+        letter-spacing: 5px;
+    }
+    .emily-photo {
+        width: 175px;
+        height: 175px;
+    }
+    .heart {
+        font-size: 58px;
+    }
+    .message {
+        font-size: 16px;
+    }
+    .love-counter {
+        grid-template-columns:
+            repeat(2, 1fr);
+        gap: 9px;
+    }
+    .time-box {
+        padding:
+            13px 4px;
+    }
+    .time-box span {
+        font-size: 26px;
+    }
+    .time-box small {
+        font-size: 9px;
+    }
+}
+</style>
+</head>
+<body>
+<!-- BACKGROUND STARS -->
+<div class="stars">
+    <span class="star" style="top:10%;left:15%;"></span>
+    <span class="star" style="top:20%;left:70%;"></span>
+    <span class="star" style="top:35%;left:30%;"></span>
+    <span class="star" style="top:50%;left:85%;"></span>
+    <span class="star" style="top:65%;left:10%;"></span>
+    <span class="star" style="top:75%;left:55%;"></span>
+    <span class="star" style="top:90%;left:80%;"></span>
+    <span class="star" style="top:15%;left:90%;"></span>
+    <span class="star" style="top:45%;left:60%;"></span>
+    <span class="star" style="top:80%;left:25%;"></span>
+</div>
+<!-- MUSIC -->
+<audio
+    id="loveMusic"
+    loop
+    preload="auto">
+    <source
+        src="love.mp3"
+        type="audio/mpeg">
+</audio>
+<!-- MAIN -->
+<main class="container">
+    <div class="subtitle">
+        A little piece of my heart
+    </div>
+    <h1>
+        EMILY
+    </h1>
+    <!-- EMILY PHOTO -->
+    <div class="emily-photo">
+        <img
+            src="emily.jpg"
+            alt="Emily">
+    </div>
+    <!-- HEART -->
+    <div class="heart">
+        ❤️
+    </div>
+    <!-- MESSAGE -->
+    <p class="message">
+        If I could give you one thing
+        in this world, I would give you
+        the ability to see yourself
+        through my eyes.
+        <br><br>
+        Then you would finally understand
+        <strong>
+            how special you are to me.
+        </strong>
+        <br><br>
+        No matter how many days pass,
+        my heart still chooses you.
+    </p>
+    <!-- LOVE CARD -->
+    <div class="card">
+        <div class="counter-title">
+            We've been writing our story for
+        </div>
+        <!-- LIVE COUNTER -->
+        <div class="love-counter">
+            <div class="time-box">
+                <span id="years">
+                    0
+                </span>
+                <small>
+                    Years
+                </small>
+            </div>
+            <div class="time-box">
+                <span id="months">
+                    0
+                </span>
+                <small>
+                    Months
+                </small>
+            </div>
+            <div class="time-box">
+                <span id="days">
+                    0
+                </span>
+                <small>
+                    Days
+                </small>
+            </div>
+            <div class="time-box">
+                <span id="hours">
+                    0
+                </span>
+                <small>
+                    Hours
+                </small>
+            </div>
+            <div class="time-box">
+                <span id="minutes">
+                    0
+                </span>
+                <small>
+                    Minutes
+                </small>
+            </div>
+            <div class="time-box">
+                <span id="seconds">
+                    0
+                </span>
+                <small>
+                    Seconds
+                </small>
+            </div>
+        </div>
+        <!-- SECRET BUTTON -->
+        <button
+            class="secret-button"
+            id="secretButton">
+            Open something from my heart ❤️
+        </button>
+        <!-- SECRET -->
+        <div id="secret">
+            Emily...
+            <br><br>
+            I don't know what the future
+            has planned for us.
+            But if I could choose one person
+            to keep beside me through it all...
+            <br><br>
+            <strong>
+                I would choose you.
+            </strong>
+            <br><br>
+            Always. ❤️
+        </div>
+    </div>
+</main>
+<script>
+/* =========================
+   LIVE RELATIONSHIP COUNTER
+========================= */
+/*
+   Our story began:
+   28 May 2023
+*/
+const startDate =
+    new Date("2023-05-28T00:00:00");
+function updateLoveCounter() {
+    const now =
+        new Date();
+    let years =
+        now.getFullYear()
+        -
+        startDate.getFullYear();
+    let months =
+        now.getMonth()
+        -
+        startDate.getMonth();
+    let days =
+        now.getDate()
+        -
+        startDate.getDate();
+    let hours =
+        now.getHours()
+        -
+        startDate.getHours();
+    let minutes =
+        now.getMinutes()
+        -
+        startDate.getMinutes();
+    let seconds =
+        now.getSeconds()
+        -
+        startDate.getSeconds();
+    /*
+       Fix seconds
+    */
+    if (seconds < 0) {
+        seconds += 60;
+        minutes--;
+    }
+    /*
+       Fix minutes
+    */
+    if (minutes < 0) {
+        minutes += 60;
+        hours--;
+    }
+    /*
+       Fix hours
+    */
+    if (hours < 0) {
+        hours += 24;
+        days--;
+    }
+    /*
+       Fix days
+    */
+    if (days < 0) {
+        const previousMonthDays =
+            new Date(
+                now.getFullYear(),
+                now.getMonth(),
+                0
+            ).getDate();
+        days += previousMonthDays;
+        months--;
+    }
+    /*
+       Fix months
+    */
+    if (months < 0) {
+        months += 12;
+        years--;
+    }
+    /*
+       Show numbers
+    */
+    document.getElementById("years")
+        .textContent = years;
+    document.getElementById("months")
+        .textContent = months;
+    document.getElementById("days")
+        .textContent = days;
+    document.getElementById("hours")
+        .textContent = hours;
+    document.getElementById("minutes")
+        .textContent = minutes;
+    document.getElementById("seconds")
+        .textContent = seconds;
+}
+/*
+   Start immediately
+*/
+updateLoveCounter();
+/*
+   Update every second
+*/
+setInterval(
+    updateLoveCounter,
+    1000
+);
+/* =========================
+   SECRET MESSAGE
+========================= */
+const secretButton =
+    document.getElementById(
+        "secretButton"
+    );
+const secret =
+    document.getElementById(
+        "secret"
+    );
+secretButton.addEventListener(
+    "click",
+    function () {
+        if (
+            secret.style.display ===
+            "block"
+        ) {
+            secret.style.display =
+                "none";
+        } else {
+            secret.style.display =
+                "block";
+        }
+    }
+);
+/* =========================
+   MUSIC
+========================= */
+const music =
+    document.getElementById(
+        "loveMusic"
+    );
+music.volume = 0.7;
+function startMusic() {
+    music.play().catch(
+        function () {
+            console.log(
+                "Music waiting for user interaction."
+            );
+        }
+    );
+    document.removeEventListener(
+        "click",
+        startMusic
+    );
+    document.removeEventListener(
+        "touchstart",
+        startMusic
+    );
+}
+document.addEventListener(
+    "click",
+    startMusic,
+    { once: true }
+);
+document.addEventListener(
+    "touchstart",
+    startMusic,
+    { once: true }
+);
+/* =========================
+   FLOATING HEARTS
+========================= */
+function createHeart() {
+    const heart =
+        document.createElement(
+            "div"
+        );
+    heart.className =
+        "floating-heart";
+    heart.innerHTML =
+        "❤️";
+    heart.style.left =
+        Math.random() * 100 + "vw";
+    heart.style.fontSize =
+        (12 + Math.random() * 18)
+        + "px";
+    heart.style.animationDuration =
+        (5 + Math.random() * 4)
+        + "s";
+    document.body.appendChild(
+        heart
+    );
+    setTimeout(
+        function () {
+            heart.remove();
+        },
+        9000
+    );
+}
+setInterval(
+    createHeart,
+    1200
+);
+</script>
+</body>
+</html>
